@@ -197,13 +197,48 @@ Probably the best test is to do a 3 point sync and verify the 2 websites.  The w
 4 - Pull from remote repo a to an alternate site < http://cattemplates.cat9.com/cataprojecttemplate/README >
 5 - Verify your mod / change is reflected.
 SUCCESS>> WE ARE GOOD
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 4 - Clone template and RENAME to new project.
+<<<<<<<<<<<<<<<<<
+--NOW... we use this template to create a new project... we will create the project catjscanvas as the example.
+--The Steps are:
+--1 - Create the public site URL
+--2 - Clone template into the working site
+--3 - Create the blank repo <I'll use github as catjscanvas can be a public project it's just me learning canvas and kineticjs>
+--4 - WORK...
+--NOW... go do it
+--Public site URL will be http://catjstuts.cat9.com/catjscanvas
+--github.com repo will be https://github.com/christrees/catjscanvas
+--ON GITHUB
+https://github.com/christrees
+https://github.com/repositories/new
+ProjectName: catjscanvas
+Description: CAT9 javascript canvas tutorial demos
+HomePageURL: http://catjstuts.cat9.com/catjscanvas/index.html
+--ON CATMAC
+catmac:Sites cat$ pwd
+/Users/cat/Sites
+catmac:Sites cat$ git clone git@github.com:christrees/cataprojecttemplate catjscanvas
+Cloning into 'catjscanvas'...
+remote: Counting objects: 13, done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 13 (delta 4), reused 12 (delta 3)
+Receiving objects: 100% (13/13), 6.85 KiB, done.
+Resolving deltas: 100% (4/4), done.
+catmac:catjscanvas cat$ git remote rm origin
+catmac:catjscanvas cat$ git remote rm private
+error: Could not remove config section 'remote.private'
+--NOTE: github does not have the private... that's in the working git dir
+catmac:catjscanvas cat$ git remote add origin git@github.com:christrees/catjscanvas.git
+--NOW edit the README
+--
 
 --<<<<<<<<<<<<<<<<<<<<
 -->>>>>>> IM HERE NOW <<<<    ^^^-HISTORY-Above --> PLAN-Below-vvv  
 -->>>>>>>>>>>>>>>>>>>>
 
 catmac:cataprojecttemplate cat$ git add .
-catmac:cataprojecttemplate cat$ git commit -m "Release 1 PUSH to both <origin> github.com and <private> cat9.com repos"
+catmac:cataprojecttemplate cat$ git commit -m "Release 2 PUSH to both <origin> github.com and <private> cat9.com repos"
 catmac:cataprojecttemplate cat$ git push origin master
 catmac:cataprojecttemplate cat$ git push private master
 
