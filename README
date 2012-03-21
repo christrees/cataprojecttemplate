@@ -73,102 +73,135 @@ catmac:Sites cat$ cp catrp/READMEIGNORE.php cataprojecttemplate/
 --Put in my .gitnore
 --Put in the webedit for .gitignore <READMEIGNORE.php>
 --Clean up this README
-/Users/cat/Sites/cataprojecttemplate>git init
-Initialized empty Git repository in /Users/cat/Sites/catrp/.git/
-/Users/cat/Sites/cataprojecttemplate>git add .
-
-
-
-
-<<<<<<<<<<<<<<<<<
->>>>>STEP 3 - Setup cat9.com git REPO
-<<<<<<<<<<<<<<<<<
---Create repo on hostgator
-catmac:~ cat$ ssh cat@cat9.com 
-[cat@gator1209 ~]$ cd repo/
-[cat@gator1209 ~/repo]$ ls
-[cat@gator1209 ~/repo]$ mkdir cataprojecttemplate.git
-[cat@gator1209 ~/repo]$ cd cataprojecttemplate.git
-[cat@gator1209 ~/repo/catrp.git]$ git --bare init
-Initialized empty Git repository in /home/cat/repo/catrp.git/
-[cat@gator1209 ~/repo/catrp.git]$ ls
-HEAD  branches  config  description  hooks  info  objects  refs
-[cat@gator1209 ~/repo/catrp.git]$
---Now SETUP REMOTE  REPO
-/Users/cat/Sites/catrp>git remote rm origin  <NOTE: JUST IN CASE origin exists>
-/Users/cat/Sites/catrp>git remote add origin cat@cat9.com:repo/catrp.git
---Lets commit this
---SAVE THIS README -- I'm using http://catmac.local/~cat/catrp/READMECAT.php <SAVE>
-/Users/cat/Sites/catrp>git add .
-/Users/cat/Sites/catrp>git commit -m "Instructions and Initial commit."
-/Users/cat/Sites/catrp>git push origin master
-catmac:catrp cat$ git push origin master
-Counting objects: 60, done.
-Delta compression using up to 2 threads.
-Compressing objects: 100% (54/54), done.
-Writing objects: 100% (60/60), 3.00 MiB | 57 KiB/s, done.
-Total 60 (delta 5), reused 0 (delta 0)
-To cat@cat9.com:repo/catrp.git
- * [new branch]      master -> master
-.... CRAP... I forgot .gitignore  heck lets setup an online edit for that too...
-.... so basically clone the READMECAT.php call it READMEIGNORE.php 
-.... Point the php to the .gitignore file <chmod 666 on it>
-.... Grab my standare ignore stuff off https://github.com/christrees/javascriptmvc310/blob/jqmobile/.gitignore
-.... commit and push this up
-catmac:catrp cat$ git commit -m "Add gitignore file and edit"
-[master 6991199] Add gitignore file and edit
+catmac:Sites cat$ cd cataprojecttemplate/
+catmac:cataprojecttemplate cat$ git init
+Initialized empty Git repository in /Users/cat/Sites/cataprojecttemplate/.git/
+catmac:cataprojecttemplate cat$ git add .
+catmac:cataprojecttemplate cat$ git commit -m "init cataprojecttemplate"
+[master (root-commit) d883013] init cataprojecttemplate
  Committer: Chris Trees <cat@catmac.local>
 Your name and email address were configured automatically based
 on your username and hostname. Please check that they are accurate.
 You can suppress this message by setting them explicitly:
+
     git config --global user.name "Your Name"
     git config --global user.email you@example.com
+
 After doing this, you may fix the identity used for this commit with:
+
     git commit --amend --reset-author
- 3 files changed, 117 insertions(+), 0 deletions(-)
+
+ 4 files changed, 278 insertions(+), 0 deletions(-)
  create mode 100644 .gitignore
- create mode 100644 READMEIGNORE.php
-catmac:catrp cat$ git push origin master
-Counting objects: 7, done.
+ create mode 100755 README
+catmac:cataprojecttemplate cat$ git remote add origin git@github.com:christrees/cataprojecttemplate.git
+catmac:cataprojecttemplate cat$ git push -u origin master
+Identity added: /Users/cat/.ssh/id_rsa (/Users/cat/.ssh/id_rsa)
+ERROR: Hi christrees, it's GitHub. We're doing an SSH key audit.
+Please visit https://github.com/settings/ssh/audit/1907166
+to approve this key so we know it's safe.
+Fingerprint: be:e9:ef:3d:88:fe:d6:5b:b3:15:b0:f8:45:14:b3:b6
+fatal: The remote end hung up unexpectedly
+catmac:cataprojecttemplate cat$ git push -u origin master
+Counting objects: 6, done.
 Delta compression using up to 2 threads.
-Compressing objects: 100% (5/5), done.
-Writing objects: 100% (5/5), 2.05 KiB, done.
-Total 5 (delta 1), reused 0 (delta 0)
-To cat@cat9.com:repo/catrp.git
-   73f5d10..6991199  master -> master
-catmac:catrp cat$ 
-... I probably should set my git globals.... lets do that...
-... ON SECOND thought... I set my User Name "Chris Trees" but leaving cat@catmac.local as it will context me where I was...
----PULL from REPO to ALTERNATE SITE
-... OK... now lets just pull from the repo from cat9.com and put it up...
-[cat@gator1209 ~/public_html/exelon]$ ls
-README.html  catrp  cgi-bin  screencast  setest  xxcatrp
-[cat@gator1209 ~/public_html/exelon]$ ls catrp/
-232.jpg  demo1.html  demo4.html  index_shortcut.html       redips-drag-min.js
-build    demo2.html  demos.css   jquery.ui.touch-punch.js  redips-drag.js
-build01  demo3.html  header.js   nbproject                 script.js
-[cat@gator1209 ~/public_html/exelon]$ rm -r catrp/
-[cat@gator1209 ~/public_html/exelon]$ pwd        
-/home/cat/public_html/exelon
-[cat@gator1209 ~/public_html/exelon]$ git clone /home/cat/repo/catrp.git/
-Initialized empty Git repository in /home/cat/public_html/exelon/catrp/.git/
-[cat@gator1209 ~/public_html/exelon]$ ls
-README.html  catrp  cgi-bin  screencast  setest  xxcatrp
-[cat@gator1209 ~/public_html/exelon]$
-...Now go to the site and see if we've got stuff...
-http://exelon.cat9.com/catrp/README
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 3.96 KiB, done.
+Total 6 (delta 1), reused 0 (delta 0)
+To git@github.com:christrees/cataprojecttemplate.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+catmac:cataprojecttemplate cat$ 
+--NOTE: I had to go accept my catmac key on github not normally required.
+--BUT it's up on github
+--https://github.com/christrees/cataprojecttemplate
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 3 - Setup cat9.com git REPO
+<<<<<<<<<<<<<<<<<
+--I forgot to setup the test.html file so I'll do that now...
+--http://catmac.local/~cat/cataprojecttemplate/READMECAT.php
+catmac:cataprojecttemplate cat$ pwd
+/Users/cat/Sites/cataprojecttemplate
+catmac:cataprojecttemplate cat$ ls -alu
+total 48
+drwxr-xr-x   8 cat  staff   272 Mar 21 12:29 .
+drwxr-xr-x+ 22 cat  staff   748 Mar 21 12:07 ..
+drwxr-xr-x  13 cat  staff   442 Mar 21 12:12 .git
+-rw-r--r--   1 cat  staff   509 Mar 21 12:08 .gitignore
+-rwxr-xr-x   1 cat  staff  9455 Mar 21 12:13 README
+-rw-r--r--   1 cat  staff   457 Mar 21 12:08 READMECAT.php
+-rw-r--r--   1 cat  staff   461 Mar 21 12:08 READMEIGNORE.php
+drwxr-xr-x   5 cat  staff   170 Mar 21 10:55 nbproject
+catmac:cataprojecttemplate cat$ vi test.html
+catmac:cataprojecttemplate cat$ 
+--WOOPS.... can't write..
+catmac:cataprojecttemplate cat$ chmod 666 README
+--Now try to save again
+--THAT WORKS...
+--Create repo on hostgator
+[cat@gator1209 ~]$ cd repo/
+[cat@gator1209 ~/repo]$ ls
+catrp.git  wizzform.git
+[cat@gator1209 ~/repo]$ mkdir cataprojecttemplate.git
+[cat@gator1209 ~/repo]$ cd cataprojecttemplate.git/
+[cat@gator1209 ~/repo/cataprojecttemplate.git]$ git --bare init
+Initialized empty Git repository in /home/cat/repo/cataprojecttemplate.git/
+[cat@gator1209 ~/repo/cataprojecttemplate.git]$ 
+--Now SETUP REMOTE  PRIVATE REPO pointer from working location
+catmac:cataprojecttemplate cat$ git remote add private cat@cat9.com:repo/cataprojecttemplate.git
+--SAVE THIS README 
+catmac:cataprojecttemplate cat$ git add .
+catmac:cataprojecttemplate cat$ git commit -m "Pushing private repo"
+catmac:cataprojecttemplate cat$ git push private master
+Counting objects: 6, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 3.96 KiB, done.
+Total 6 (delta 1), reused 0 (delta 0)
+To cat@cat9.com:repo/cataprojecttemplate.git
+ * [new branch]      master -> master
+catmac:cataprojecttemplate cat$ 
+--OK now lets just pull from the repo from cat9.com and put it up to public
+--NOTE we could also pull from github and we should attempt that also.
+--NOTE we also have to setup cattemplates.cat9.com sub
+--THEN we can do the following local clone
+[cat@gator1209 ~/repo/cataprojecttemplate.git]$ cd ~/public_html/cat
+catform/      catfrombuild/ cattemplates/ 
+[cat@gator1209 ~/repo/cataprojecttemplate.git]$ cd ~/public_html/cattemplates/
+[cat@gator1209 ~/public_html/cattemplates]$ git clone /home/cat/repo/cataprojecttemplate.git/
+Initialized empty Git repository in /home/cat/public_html/cattemplates/cataprojecttemplate/.git/
+[cat@gator1209 ~/public_html/cattemplates]$ ls
+cataprojecttemplate  cgi-bin
+[cat@gator1209 ~/public_html/cattemplates]$ 
+--See if it's out there http://cattemplates.cat9.com/cataprojecttemplate/test.html
+--CRAP... no test.html
+--BUT http://cattemplates.cat9.com/cataprojecttemplate/ has the README... so I'm just out of sync...
 ...YUP... we've got the path now...
+--SAVE this and push to github
+
+--<<<<<<<<<<<<<<<<<<<<
+-->>>>>>> IM HERE NOW <<<<    ^^^-HISTORY-Above --> PLAN-Below-vvv  
+-->>>>>>>>>>>>>>>>>>>>
+
+catmac:cataprojecttemplate cat$ git add .
+catmac:cataprojecttemplate cat$ git commit -m "Setting up test.html and push the master branch to both <origin> github.com and <private> cat9.com repos"
+catmac:cataprojecttemplate cat$ git push origin master
+catmac:cataprojecttemplate cat$ git push private master
+--Nuke and pull from github
+[cat@gator1209 ~/public_html/cattemplates]$ git clone git@github.com:christrees/cataprojecttemplate.git
+--See if it's out there http://cattemplates.cat9.com/cataprojecttemplate/test.html
 <<<<<<<<<<<<<<<<<
 >>>>>STEP 1, 2, 3 - TEST
 <<<<<<<<<<<<<<<<<
 Probably the best test is to do a 3 point sync and verify the 2 websites.  The way that works in this case is:
-1 - Modify local file <copy 1> http://catmac.local/~cat/catrp/README
+1 - Modify local file <copy 1> http://catmac.local/~cat/cataprojecttemplate/README
 2 - commit in local file <copy 2>
 3 - push commit to remote repo <copy 3>
-4 - Pull from remote repo a to an alternate site < http://exelon.cat9.com/catrp/README >
+4 - Pull from remote repo a to an alternate site < http://cattemplates.cat9.com/cataprojecttemplate/README >
 5 - Verify your mod / change is reflected.
 SUCCESS>> WE ARE GOOD
 
+======= END =============
 ------- copy buffer --------------
 ?????????????????????????????????
 <<<<<<<<<<<<<<<<<
@@ -188,8 +221,8 @@ catmac:cataprojecttemplate cat$ git push origin master
 <<<<<<<<<<<<<<<<<
 >>>>>STEP x - TEST
 <<<<<<<<<<<<<<<<<
-Browse - http://catmac.local/~cat/catrp/demo5.html
-Browse - http://exelon.cat9.com/catrp/demo5.html
+Browse - http://catmac.local/~cat/cataprojecttemplate/demo5.html
+Browse - http://cattemplates.cat9.com/cataprojecttemplate/demo5.html
 SUCCESS>>
 ?FAILURE>>
 ??WHAT?>>
