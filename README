@@ -178,18 +178,15 @@ cataprojecttemplate  cgi-bin
 --BUT http://cattemplates.cat9.com/cataprojecttemplate/ has the README... so I'm just out of sync...
 ...YUP... we've got the path now...
 --SAVE this and push to github
-
---<<<<<<<<<<<<<<<<<<<<
--->>>>>>> IM HERE NOW <<<<    ^^^-HISTORY-Above --> PLAN-Below-vvv  
--->>>>>>>>>>>>>>>>>>>>
-
 catmac:cataprojecttemplate cat$ git add .
 catmac:cataprojecttemplate cat$ git commit -m "Setting up test.html and push the master branch to both <origin> github.com and <private> cat9.com repos"
 catmac:cataprojecttemplate cat$ git push origin master
 catmac:cataprojecttemplate cat$ git push private master
 --Nuke and pull from github
+[cat@gator1209 ~/public_html/cattemplates]$ rm -rf cataprojecttemplate/
 [cat@gator1209 ~/public_html/cattemplates]$ git clone git@github.com:christrees/cataprojecttemplate.git
 --See if it's out there http://cattemplates.cat9.com/cataprojecttemplate/test.html
+--YUP... THAT WORKS
 <<<<<<<<<<<<<<<<<
 >>>>>STEP 1, 2, 3 - TEST
 <<<<<<<<<<<<<<<<<
@@ -201,6 +198,15 @@ Probably the best test is to do a 3 point sync and verify the 2 websites.  The w
 5 - Verify your mod / change is reflected.
 SUCCESS>> WE ARE GOOD
 
+--<<<<<<<<<<<<<<<<<<<<
+-->>>>>>> IM HERE NOW <<<<    ^^^-HISTORY-Above --> PLAN-Below-vvv  
+-->>>>>>>>>>>>>>>>>>>>
+
+catmac:cataprojecttemplate cat$ git add .
+catmac:cataprojecttemplate cat$ git commit -m "Release 1 PUSH to both <origin> github.com and <private> cat9.com repos"
+catmac:cataprojecttemplate cat$ git push origin master
+catmac:cataprojecttemplate cat$ git push private master
+
 ======= END =============
 ------- copy buffer --------------
 ?????????????????????????????????
@@ -210,14 +216,20 @@ SUCCESS>> WE ARE GOOD
 --WHAT the heck to do next... how about blahblah
 --Lets commit this
 --SAVE THIS README
-catmac:cataprojecttemplate cat$ git add -u
+--SAVE this and push to github
 catmac:cataprojecttemplate cat$ git add .
-catmac:cataprojecttemplate cat$ git commit -m "blah blah"
+catmac:cataprojecttemplate cat$ git commit -m "blahblahtemplatestuff"
 catmac:cataprojecttemplate cat$ git push origin master
+catmac:cataprojecttemplate cat$ git push private master
 [cat@gator1209 ~/public_html/cattemplate/cataprojecttemplate]$ git fetch
 [cat@gator1209 ~/public_html/cattemplate/cataprojecttemplate]$ git reset --hard HEAD
 [cat@gator1209 ~/public_html/cattemplate/cataprojecttemplate]$ git merge origin/master
 [cat@gator1209 ~/public_html/cattemplate/cataprojecttemplate]$ git checkout remotes/origin/<whatever branch>
+OR
+[cat@gator1209 ~/public_html/cattemplate/cataprojecttemplate]$ git fetch
+[cat@gator1209 ~/public_html/cattemplate/cataprojecttemplate]$ git reset --hard HEAD
+[cat@gator1209 ~/public_html/cattemplate/cataprojecttemplate]$ git merge private/master
+[cat@gator1209 ~/public_html/cattemplate/cataprojecttemplate]$ git checkout remotes/private/<whatever branch>
 <<<<<<<<<<<<<<<<<
 >>>>>STEP x - TEST
 <<<<<<<<<<<<<<<<<
